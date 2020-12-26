@@ -1,0 +1,67 @@
+[
+  {
+    "fk_localidade": 17,
+    "fk_classe_bovina": 1,
+    "fk_raca": 11,
+    "nome": "",
+    "registro": "vjoa",
+    "classe_registro": "tatuagem",
+    "sexo": "m",
+    "data_n": "2015-01-22",
+    "data_m": "2016-08-11",
+    "status_": "morto",
+    "peso": 1176
+  },
+  {
+    "fk_localidade": 16,
+    "fk_classe_bovina": 1,
+    "fk_raca": 17,
+    "nome": "",
+    "registro": "311hn",
+    "classe_registro": "tatuagem",
+    "sexo": "femea",
+    "data_n": "2019-02-14",
+    "data_m": "1901-01-01",
+    "status_": "vivo",
+    "peso": 389
+  },
+  {
+    "fk_localidade": 3,
+    "fk_classe_bovina": 1,
+    "fk_raca": 19,
+    "nome": "",
+    "registro": "s7jhe",
+    "classe_registro": "chip",
+    "sexo": "femea",
+    "data_n": "2015-08-24",
+    "data_m": "1901-01-01",
+    "status_": "vivo",
+    "peso": 485
+  },
+  {
+    "fk_localidade": 7,
+    "fk_classe_bovina": 1,
+    "fk_raca": 5,
+    "nome": "",
+    "registro": "ezypp",
+    "classe_registro": "tatuagem",
+    "sexo": "macho",
+    "data_n": "2014-01-18",
+    "data_m": "1901-01-01",
+    "status_": "vivo",
+    "peso": 641
+  },
+  {
+    "fk_localidade": 13,
+    "fk_classe_bovina": 1,
+    "fk_raca": 16,
+    "nome": "",
+    "registro": "jitogv",
+    "classe_registro": "tatuagem",
+    "sexo": "m",
+    "data_n": "2015-02-21",
+    "data_m": "1901-01-01",
+    "status_": "vivo",
+    "peso": 572
+  }
+]

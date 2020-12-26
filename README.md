@@ -1,6 +1,6 @@
 ## Script para geração de dados fakes
 
-Disciplina de Projetoe Gerência de Banco de Dados | UFSM - 2020/2
+Disciplina de Projeto e Gerência de Banco de Dados | UFSM - 2020/2
 
 ### Setup
 Instalar dependências yarn
@@ -15,3 +15,5 @@ Para criar o animal, use o comando abaixo, onde `[num_animal]` é o número de a
 ```
 yarn run animal [num_animal]
 ```
+
+
