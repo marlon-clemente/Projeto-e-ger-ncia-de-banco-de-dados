@@ -9,6 +9,7 @@
     "build": "tsc",
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
     "animal": "ts-node-dev --ignore-watch node_modules src/index_animal.ts",
+    "manejo": "ts-node-dev --ignore-watch node_modules src/index_manejo.ts",
     "knex:seed": "knex --knexfile knexfile.ts seed:run",
     "knex:migrate": "knex --knexfile knexfile.js migrate:latest"
   },

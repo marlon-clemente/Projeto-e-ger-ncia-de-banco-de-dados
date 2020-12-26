@@ -1,45 +1,62 @@
-export const create_manejo = () => {
-  var vector = [];
-  
-  
-  
-  for (let i=1; i <= 60; i++){
+import { getRandonIntegrerIncluise, getRandonData } from "./randon";
+import { save, read } from "./manip_json";
 
-    let def = Math.floor(Math.random() * (3 - 1)) + 1;
-    
-    if (def === 1){
-      let cast = {
-        fk_animal: i,
-        tipo_manejo: getTipo_manejo(),
-        peso_kg: get_peso(),
-        data_: create_data(),
-        descricao: 'Possíveis anotações sobre o manejo podem ser encontradas aqui '
-      } 
-      vector.push(cast)
+export const create_manejo = (num_max_manejo: number) => {
+  var vector = [];
+  var manejo = {};
+
+  const animal = read("animal");
+  var tudo = Object.keys(animal).map((i) => {
+    [i];
+  });
+
+  for (let j = 0; j <= num_max_manejo; j++) {
+    for (let i = 1; i <= tudo.length; i++) {
+      let animaLTeramanejo = getRandonIntegrerIncluise(1, 100);
+      if (animaLTeramanejo <= 35) {
+        let define_manejo = getRandonIntegrerIncluise(1, 2);
+
+        if (define_manejo === 1) {
+          manejo = {
+            fk_animal: i,
+            tipo_manejo: "vacina",
+            peso_kg: null,
+            data_: getRandonData(),
+            descricao: getDescricao(),
+          };
+        } else {
+          manejo = {
+            fk_animal: i,
+            tipo_manejo: "pesagem",
+            peso_kg: getRandonIntegrerIncluise(1000, 2500),
+            data_: getRandonData(),
+            descricao: null,
+          };
+        }
+        vector.push(manejo);
+      }
     }
   }
-  console.log(vector)
-}
 
-const getTipo_manejo = () => {
-  let m = [ 'vacina', 'pesagem' ];
-  let def = Math.floor(Math.random() * (1 - 0)) + 0;
-  const maj = m[def] 
-  return maj
-}
+  save(vector, "manejo");
+  // console.log(vector);
+};
 
-const get_peso = () =>{
-  let MAXIMO_LOCALIZACAO = 1500;
-  let id = Math.floor(Math.random() * (MAXIMO_LOCALIZACAO - 350)) + 350;
-  return id;
-}
+const getDescricao = () => {
+  const medicamento = [
+    "Perical",
+    "Formoped",
+    "Promotor de Engorda",
+    "facilite",
+    "Antibióticos",
+    "Anti-inflamatórios",
+    "Carrapaticidas",
+    "Antitóxicos",
+  ];
+  var conc =
+    getRandonIntegrerIncluise(15, 90) +
+    "ml de " +
+    medicamento[getRandonIntegrerIncluise(0, 7)];
 
-const create_data = () => {
-  let r_dia = Math.floor(Math.random() * (27 - 10)) + 10;
-  let r_mes = Math.floor(Math.random() * (9 - 1)) + 1;
-  let r_ano = Math.floor(Math.random() * (2020 - 2018)) + 2018;
-
-
-  const data = r_ano + '-0' + r_mes + '-' + r_dia;
-  return data;
-}
+  return conc;
+};
