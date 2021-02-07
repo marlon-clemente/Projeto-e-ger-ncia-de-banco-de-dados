@@ -16,10 +16,10 @@ export const create_animal = (num_animal: number) => {
       sexo,
     } = get_identificacao_animal();
 
-    const { data_n, data_m, status_ } = get_status_and_datas();
+    const { data_n, data_m, data_cast, status_ } = get_status_and_datas();
 
     const animal = {
-      fk_localidade: getRandonIntegrerIncluise(1, 23),
+      fk_localidade: getRandonIntegrerIncluise(1, 20),
       fk_classe_bovina: get_fk_classe_bovina(sexo),
       fk_raca: getRandonIntegrerIncluise(1, 20),
       nome,
@@ -28,8 +28,9 @@ export const create_animal = (num_animal: number) => {
       sexo,
       data_n,
       data_m,
+      data_cast,
       status_,
-      peso: getRandonIntegrerIncluise(350, 1500),
+      peso_kg: getRandonIntegrerIncluise(350, 1500),
     };
     todo.push(animal);
   }
@@ -40,7 +41,10 @@ export const create_animal = (num_animal: number) => {
 };
 
 const get_status_and_datas = () => {
-  let data_n: string, data_m: string | null, status_: string;
+  let data_n: string,
+    data_m: string | null,
+    status_: string,
+    data_cast: string | null;
 
   let r_status = getRandonIntegrerIncluise(1, 3);
   // vivo ou vendido
@@ -55,7 +59,15 @@ const get_status_and_datas = () => {
     data_m = getRandonData();
     status_ = "morto";
   }
-  return { data_n, data_m, status_ };
+
+  let define_cast = getRandonIntegrerIncluise(1, 2);
+  if (define_cast === 1) {
+    data_cast = getRandonData();
+  } else {
+    data_cast = null;
+  }
+
+  return { data_n, data_m, data_cast, status_ };
 };
 
 const get_fk_classe_bovina = (sexo: string) => {

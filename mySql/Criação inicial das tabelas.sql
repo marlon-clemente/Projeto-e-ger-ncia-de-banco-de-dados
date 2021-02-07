@@ -32,6 +32,9 @@ CREATE TABLE animal (
 	sexo CHAR(10) NOT NULL,
 	data_n DATE,
 	data_m DATE,
+	/*ADD no EXAME*/
+	data_cast DATE,
+	/**/
 	status_ VARCHAR(255),
   peso_kg INT,
     
@@ -41,6 +44,8 @@ CREATE TABLE animal (
 	FOREIGN KEY (fk_raca) REFERENCES raca(id_raca)
 );
 
+/*
+REMOVIDA NO EXAME
 CREATE TABLE castracao (
 	id_castracao INT AUTO_INCREMENT NOT NULL,
   fk_animal INT NOT NULL,
@@ -48,6 +53,7 @@ CREATE TABLE castracao (
 	PRIMARY KEY (id_castracao),
   FOREIGN KEY (fk_animal) REFERENCES animal(id_animal)
 );
+*/
 
 CREATE TABLE manejo (
 	id_manejo INT NOT NULL AUTO_INCREMENT,

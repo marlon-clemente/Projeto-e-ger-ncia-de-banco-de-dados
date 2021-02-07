@@ -1,33 +1,19 @@
-export const create_castracao = () => {
+import { getRandonIntegrerIncluise, getRandonData } from "./randon";
+import { save } from "./manip_json";
+
+export const create_castracao = (num_animal: number) => {
   var vector = [];
 
-  for (let i = 1; i <= 60; i++) {
-    let def = Math.floor(Math.random() * (3 - 1)) + 1;
+  for (let i = 1; i <= num_animal; i++) {
+    let def = getRandonIntegrerIncluise(1, 2);
 
     if (def === 1) {
       let cast = {
         fk_animal: i,
-        tipo_manejo: getTipo_manejo(),
-        data_: create_data(),
+        data_: getRandonData(),
       };
       vector.push(cast);
     }
   }
-  console.log(vector);
-};
-
-const getTipo_manejo = () => {
-  let m = ["vacina", "pesagem"];
-  let def = Math.floor(Math.random() * (2 - 1)) + 1;
-  const maj = m[def];
-  return maj;
-};
-
-const create_data = () => {
-  let r_dia = Math.floor(Math.random() * (27 - 10)) + 10;
-  let r_mes = Math.floor(Math.random() * (9 - 1)) + 1;
-  let r_ano = Math.floor(Math.random() * (2020 - 2018)) + 2018;
-
-  const data = r_ano + "-0" + r_mes + "-" + r_dia;
-  return data;
+  save(vector, "castracao");
 };
